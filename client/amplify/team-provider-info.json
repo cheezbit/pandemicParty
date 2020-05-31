@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-pandemicpartyy-dev-192558-authRole",
+            "UnauthRoleArn": "arn:aws:iam::646546991525:role/amplify-pandemicpartyy-dev-192558-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::646546991525:role/amplify-pandemicpartyy-dev-192558-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-pandemicpartyy-dev-192558-deployment",
+            "UnauthRoleName": "amplify-pandemicpartyy-dev-192558-unauthRole",
+            "StackName": "amplify-pandemicpartyy-dev-192558",
+            "StackId": "arn:aws:cloudformation:us-east-1:646546991525:stack/amplify-pandemicpartyy-dev-192558/11d1a070-a2e6-11ea-9f5e-0e23aa861d3d",
+            "AmplifyAppId": "d20n3639pj0fbe"
+        },
+        "categories": {
+            "auth": {
+                "pandemicpartyy6b0f49d7": {}
+            }
+        }
+    }
+}
