@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cognito_plugin/flutter_cognito_plugin.dart';
 
 void main() {
   runApp(MyApp());
@@ -108,10 +109,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: signUpUser,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  Future<bool> signUpUser() async {
+    SignUpResult result;
+    try {
+      result = await Cognito.signUp("swerdlow@gmail.com", "12345678abC!%");
+      print(result.toString());
+    } catch (e) {
+      print(e);
+    }
+    return result != null;
+  }
+
 }
