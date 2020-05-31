@@ -106,10 +106,12 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   void checkLogin() async {
-    UserState user = await Cognito.getCurrentUserState();
-    print(user);
+    bool signedIn = await Cognito.isSignedIn();
+    print(signedIn);
+    print("USER");
+    print(signedIn);
     setState(() {
-      this.loggedIn = user == UserState.SIGNED_IN;
+      this.loggedIn = signedIn;
     });
   }
 }

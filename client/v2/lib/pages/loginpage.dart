@@ -1,3 +1,5 @@
+import 'package:flutter_cognito_plugin/flutter_cognito_plugin.dart';
+
 import '../global/AWS.dart';
 import 'signuppage.dart';
 import 'package:flutter/cupertino.dart';
@@ -156,6 +158,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void login() async {
-    
+    SignInResult result = await Cognito.signIn(
+      this.emailController.text,
+      this.passwordController.text,
+    );
+    print(result.signInState);
+    if(result!=null)
+      Navigator.pop(context);
   }
 }

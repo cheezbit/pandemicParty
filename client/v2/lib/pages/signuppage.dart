@@ -155,31 +155,64 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  void signUp() async {
+  Future<bool> signUp() async {
     SignUpResult result;
     try {
       result = await Cognito.signUp(
         this.emailController.text,
         this.passwordController.text,
       );
+      print(result.toString());
     } catch (e) {
+      print(e);
+    }
+    if (result != null) {
+      await showCupertinoDialog(
+        context: context,
+        builder: (c) => CupertinoAlertDialog(
+          title: Text("Account Created"),
+          content: Text("To access your account, please "),
+          actions: [
+            CupertinoDialogAction(
+              child: Text(
+                "Ok",
+              ),
+              onPressed: () {
+                Navigator.pop(
+                  context,
+                );
+                Navigator.pop(
+                  context,
+                );
+              },
+            ),
+          ],
+        ),
+      );
+      Cognito.signIn(
+        this.emailController.text,
+        this.passwordController.text,
+      );
+    } else {
       showCupertinoDialog(
         context: context,
-        builder: (v) {
-          return CupertinoAlertDialog(
-            title: Text("Unable to sign in"),
-            content: Text(e.runtimeType.toString()),
-            actions: [
-              CupertinoDialogAction(
-                child: Text("Ok"),
-                onPressed: () => Navigator.pop(context),
-              )
-            ],
-          );
-        },
+        builder: (c) => CupertinoAlertDialog(
+          title: Text("Unable to sign up"),
+          content: Text("SMH WHAT DID U DO ISABELLE?xw"),
+          actions: [
+            CupertinoDialogAction(
+              child: Text(
+                "Ok",
+              ),
+              onPressed: () {
+                Navigator.pop(
+                  context,
+                );
+              },
+            ),
+          ],
+        ),
       );
     }
-    print(result);
-
   }
 }

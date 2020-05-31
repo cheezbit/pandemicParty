@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../components/eventCard.dart';
 import '../models/event.dart';
 import 'package:flutter/cupertino.dart';
@@ -46,7 +48,6 @@ class _MainFeedState extends State<MainFeed> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      
       backgroundColor: CupertinoColors.extraLightBackgroundGray,
       navigationBar: CupertinoNavigationBar(
         middle: Text("Home"),
@@ -126,7 +127,23 @@ class _MainFeedState extends State<MainFeed> {
     );
   }
 
-  void loadEvents()async{
-    Response response;
+  void loadEvents() async {
+    Response response = await get(
+      "https://pu9drhzo8e.execute-api.us-east-1.amazonaws.com/pandemic/",
+    );
+
+    List servicesJSON = jsonDecode(response.body);
+    for (Map serviceJSON in servicesJSON) {
+      this.events.add(
+            Event.fromJSON(
+              serviceJSON,
+            ),
+          );
+    }
+    setState(() {
+      this.loaded = true;
+    });
+    print("EVENTS");
+    print(this.events);
   }
 }
