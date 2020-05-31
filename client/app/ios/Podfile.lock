@@ -3,39 +3,73 @@ PODS:
     - AgoraRtcEngine_iOS_Crypto (= 2.9.1)
     - Flutter
   - AgoraRtcEngine_iOS_Crypto (2.9.1)
+  - AWSAuthCore (2.13.4):
+    - AWSCore (= 2.13.4)
+  - AWSCognitoIdentityProvider (2.13.4):
+    - AWSCognitoIdentityProviderASF (= 1.0.1)
+    - AWSCore (= 2.13.4)
+  - AWSCognitoIdentityProviderASF (1.0.1)
+  - AWSCore (2.13.4)
+  - AWSMobileClient (2.13.4):
+    - AWSAuthCore (= 2.13.4)
+    - AWSCognitoIdentityProvider (= 2.13.4)
   - Flutter (1.0.0)
+  - flutter_cognito_plugin (0.0.1):
+    - AWSMobileClient (~> 2.13.1)
+    - Flutter
+    - plugin_scaffold
   - flutter_plugin_android_lifecycle (0.0.1):
     - Flutter
   - image_picker (0.0.1):
+    - Flutter
+  - plugin_scaffold (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - agora_rtc_engine (from `.symlinks/plugins/agora_rtc_engine/ios`)
   - Flutter (from `Flutter`)
+  - flutter_cognito_plugin (from `.symlinks/plugins/flutter_cognito_plugin/ios`)
   - flutter_plugin_android_lifecycle (from `.symlinks/plugins/flutter_plugin_android_lifecycle/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - plugin_scaffold (from `.symlinks/plugins/plugin_scaffold/ios`)
 
 SPEC REPOS:
   trunk:
     - AgoraRtcEngine_iOS_Crypto
+    - AWSAuthCore
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
 
 EXTERNAL SOURCES:
   agora_rtc_engine:
     :path: ".symlinks/plugins/agora_rtc_engine/ios"
   Flutter:
     :path: Flutter
+  flutter_cognito_plugin:
+    :path: ".symlinks/plugins/flutter_cognito_plugin/ios"
   flutter_plugin_android_lifecycle:
     :path: ".symlinks/plugins/flutter_plugin_android_lifecycle/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
+  plugin_scaffold:
+    :path: ".symlinks/plugins/plugin_scaffold/ios"
 
 SPEC CHECKSUMS:
   agora_rtc_engine: 1fe3b8d1949467e5884c4b57fd02c45c887533a5
   AgoraRtcEngine_iOS_Crypto: c2bca616406c6dda9ae254d59637a18ba0fae8f0
+  AWSAuthCore: 72b4bd064c28985ea5345c62759632d511de342a
+  AWSCognitoIdentityProvider: a2d1d2857316519c018c03ac8205cf78154db5c0
+  AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
+  AWSCore: 06beea22b6bdbfe9f5ab5015c6901e8475c746a8
+  AWSMobileClient: 33ecce524fbc011d543dae8306ca29a43ecb72e5
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_cognito_plugin: f9de7bbafa0cdcf1f9bb7ffbdc9f0ac0d703333e
   flutter_plugin_android_lifecycle: dc0b544e129eebb77a6bfb1239d4d1c673a60a35
   image_picker: 66aa71bc96850a90590a35d4c4a2907b0d823109
+  plugin_scaffold: f83b8103defd141436d8ee29ba4a3e1b5230fea1
 
-PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+PODFILE CHECKSUM: 2609452b760cd11039b14039a86564367a3d8ab9
 
 COCOAPODS: 1.9.1

@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.extraLightBackgroundGray,
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Login In"),
+        middle: Text("Login"),
         heroTag: "SMH",
         transitionBetweenRoutes: false,
       ),

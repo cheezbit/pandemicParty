@@ -167,8 +167,8 @@ class _SignUpPageState extends State<SignUpPage> {
         context: context,
         builder: (v) {
           return CupertinoAlertDialog(
-            title: Text(e.name),
-            content: Text(e.message),
+            title: Text("Unable to sign in"),
+            content: Text(e.runtimeType.toString()),
             actions: [
               CupertinoDialogAction(
                 child: Text("Ok"),
