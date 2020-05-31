@@ -2,13 +2,13 @@ import 'package:app/components/eventCard.dart';
 import 'package:app/models/event.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 const List allEventTags = [
   "Cooking",
   "Coding",
   "Dancing",
   "Art",
-  "Painting",
   "Meditation",
   "Fitness"
 ];
@@ -26,6 +26,7 @@ class MainFeed extends StatefulWidget {
 class _MainFeedState extends State<MainFeed> {
   List<Event> events = [];
   List selectedTags;
+  bool loaded;
 
   @override
   void initState() {
@@ -35,15 +36,18 @@ class _MainFeedState extends State<MainFeed> {
       "Coding",
       "Dancing",
       "Art",
-      "Painting",
       "Meditation",
       "Fitness",
     ];
+    loaded = false;
+    loadEvents();
   }
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      
+      backgroundColor: CupertinoColors.extraLightBackgroundGray,
       navigationBar: CupertinoNavigationBar(
         middle: Text("Home"),
       ),
@@ -55,7 +59,7 @@ class _MainFeedState extends State<MainFeed> {
             ),
             CupertinoSliverRefreshControl(
               onRefresh: () async {
-                await Future.delayed(
+                return await Future.delayed(
                   Duration(
                     seconds: 2,
                   ),
@@ -100,19 +104,29 @@ class _MainFeedState extends State<MainFeed> {
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                List.generate(
-                  this.events.length,
-                  (index) => EventCard(
-                    this.events[index],
+            this.loaded
+                ? SliverList(
+                    delegate: SliverChildListDelegate(
+                      List.generate(
+                        this.events.length,
+                        (index) => EventCard(
+                          this.events[index],
+                        ),
+                      ),
+                    ),
+                  )
+                : SliverFillRemaining(
+                    child: Center(
+                      child: CupertinoActivityIndicator(),
+                    ),
                   ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
     );
+  }
+
+  void loadEvents()async{
+    Response response;
   }
 }

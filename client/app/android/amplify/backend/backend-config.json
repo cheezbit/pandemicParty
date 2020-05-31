@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"pandemicparty5c72147d": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

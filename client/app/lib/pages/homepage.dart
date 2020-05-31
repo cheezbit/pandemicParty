@@ -1,17 +1,23 @@
 import 'package:app/pages/mainfeed.dart';
+import 'package:app/pages/settingspage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 
 class HomePage extends StatelessWidget {
+  CupertinoTabController tabController = CupertinoTabController();
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
-      tabBuilder: (c,i){
+            backgroundColor: CupertinoColors.extraLightBackgroundGray,
+
+      controller: this.tabController,
+      tabBuilder: (c, i) {
         switch (i) {
           case 0:
             return MainFeed();
-            break;
+          case 2:
+            return SettingsPage(tabController: this.tabController);
           default:
             return Container();
         }
@@ -20,7 +26,7 @@ class HomePage extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: Icon(
-              CupertinoIcons.home,
+              Mdi.home,
             ),
             title: Text(
               "Home",
@@ -33,7 +39,6 @@ class HomePage extends StatelessWidget {
             title: Text(
               "My Events",
             ),
-
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -42,7 +47,6 @@ class HomePage extends StatelessWidget {
             title: Text(
               "Settings",
             ),
-
           )
         ],
       ),

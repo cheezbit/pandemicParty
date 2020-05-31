@@ -1,4 +1,4 @@
-import 'package:app/appTheme.dart';
+import 'package:app/global/appTheme.dart';
 import 'package:app/pages/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         DefaultMaterialLocalizations.delegate
       ],
       theme: CupertinoThemeData(
+        brightness: Brightness.light,
         primaryColor: AppTheme.mainColor
       ),
       home: HomePage(),
